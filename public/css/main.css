@@ -1,0 +1,33 @@
+header h1{
+    background-color: beige;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+nav {
+    margin-left: 10;
+}
+
+footer {
+    background-color: beige;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+ 
+tr td {
+    cursor: pointer;
+}
+
+.auto {
+    cursor: auto !important;
+}
+
+.center {
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
