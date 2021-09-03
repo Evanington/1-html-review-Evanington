@@ -30,4 +30,10 @@ tr td {
     margin-right: auto;
     width: 50%;
   }
-
+  .right {
+    display: block;
+    text-align: right;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
