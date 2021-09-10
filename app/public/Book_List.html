@@ -53,7 +53,7 @@
 
             <main>
                 <!-- Main Section -->
-                <table class="table table-border table-stripe table-hover">
+                <table id="taskTable" class="table table-border table-stripe table-hover">
                   <thead>
                       <tr>
                           <th> Title </th>
@@ -143,6 +143,10 @@
             </footer>
                 <!--End of Footer-->
         </div>
+        <script src="js/tablesort.min.js"></script>
+        <script>
+          new Tablesort(document.getElementById('taskTable'));
+        </script>
     </body>
 
 </html>
