@@ -110,3 +110,6 @@ tr td {
     visibility: visible;
     opacity: 1;
   }
+  p {
+    font-size: 400px;
+  }
