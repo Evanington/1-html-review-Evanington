@@ -45,22 +45,23 @@
             
 
             <main>
-                <!-- Main Section -->
-              <div id='userapp'>
-                  <form method= "get" v-on:submit.prevent="fetchUser">
-                    <p> Name: {{userName}} </p>
-                    <p> Email: <a href="mailto:jamie.douglas@gmail.com"> {{userEmail}} </a></p> 
-                    <p> Country: {{userCountry}} </p>
-                    <p> Birthdate: {{userBirthdate}} </p>
-                    <p> Age: {{userAge}} </p>
-                    <a v-bind:href="userPicLarge">
-                      <img v-bind:src="userPicThumb" height="300">
-                    </a>
-                    <div>
+              <div id='userapp' class="row">
+                <div class="one col-lg-7 col-md-7 col-sm-12 col-xs-12'">
+                    <form method= "get" v-on:submit.prevent="fetchUser">
+                      <p> Name: {{userName}} </p>
+                      <p> Email: <a href="mailto:jamie.douglas@gmail.com"> {{userEmail}} </a></p> 
+                      <p> Country: {{userCountry}} </p>
+                      <p> Birthdate: {{userBirthdate}} </p>
+                      <p> Age: {{userAge}} </p>
                       <p><button type="submit"> Refresh </button></p>
-                  </form>
-              </div>  
-
+                    </div>
+                    <div class="one col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                      <a v-bind:href="userPicLarge">
+                        <img v-bind:src="userPicLarge" height="300">
+                      </a>
+                    </div>
+                    </form>
+                </div>  
            </main>
                 <!--End of Main-->
                 <!--Start of Footer-->
