@@ -48,7 +48,7 @@
 
             <main>
                 <!-- Start of Table Section -->
-                <div id="offerApp" class="container">
+                <div id="offerApp" >
                   <div class="row align-items-start">
                     <div class="col col-4">
                       <!-- <p>Profile information for {{ person.name.first }}</p> -->
@@ -65,19 +65,20 @@
                       <table class="table">
                         <thead>
                           <tr>
-                            <th>Company</th>
-                            <th>Salary</th>
-                            <th>Bonus</th>
-                            <th>Offer Date</th>
-                            <th>Status</th>
+                            <th> Author(s) </th>
+                            <th> Year Published </th>
+                            <th> Publisher </th>
+                            <th> Page Count </th>
+                            <th> MSRP </th>
                           </tr>
                         </thead>
                           <tbody>
                               <tr v-for="offer in offers">
-                                  <td>{{ offer.companyName }}</td>
-                                  <td>{{ prettyDollar(offer.salary) }}</td>
-                                  <td>{{ prettyDollar(offer.bonus) }}</td>
-                                  <td>{{ offer.offerDate }}</td>
+                                  <td>{{ offer.authorName }}</td>
+                                  <td>{{ offer.publishYear }}</td>
+                                  <td>{{ offer.publisher }}</td>
+                                  <td>{{ offer.pageCount }}</td>
+                                  <td>{{ prettyDollar(offer.bookMsrp) }}</td>
                               </tr>
                           </tbody>
                       </table>
