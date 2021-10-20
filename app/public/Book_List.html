@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -52,7 +51,7 @@
                   <div class="row align-items-start">
                     <div class="col col-4">
                       <!-- <p>Profile information for {{ person.name.first }}</p> -->
-                      <div v-for="s in students" v-on:click="selectStudent(s)"
+                      <!-- <div v-for="s in students" v-on:click="selectStudent(s)"
                        :class="['student', {selected: selectedStudent && s.id == selectedStudent.id}]">
                         
                         <span class="studentName">{{ s.name }}</span>
@@ -60,11 +59,12 @@
                     </div>
           
                     <div  class="col col-8" v-if="selectedStudent">
-                      <h1>{{ selectedStudent.name }}</h1>
+                      <h1>{{ selectedStudent.name }}</h1> -->
           
                       <table class="table">
                         <thead>
                           <tr>
+                            <th> Book Name </th>
                             <th> Author(s) </th>
                             <th> Year Published </th>
                             <th> Publisher </th>
@@ -74,7 +74,8 @@
                         </thead>
                           <tbody>
                               <tr v-for="offer in offers">
-                                  <td>{{ offer.authorName }}</td>
+                                <td>{{ offer.bookName }}</td>  
+                                <td>{{ offer.authorName }}</td>
                                   <td>{{ offer.publishYear }}</td>
                                   <td>{{ offer.publisher }}</td>
                                   <td>{{ offer.pageCount }}</td>
@@ -82,45 +83,44 @@
                               </tr>
                           </tbody>
                       </table>
-                          <div class="noOffers" v-if="! offers.length">
-                        <h3>No offers</h3>
-                      </div>
-          
-                    </div>
-          
-                  </div>
-          
-                </div>
+                          
+                               
+                 
                <!--End of Table Section-->
-              <form>
+               <form v-on:submit.prevent="postNewOffer">
                 <div class="mb-3">
-                  <label for="exampleInputTitle1" class="form-label">Book Title</label>
-                  <input type="title" class="form-control" id="titleinput1" aria-describedby="titlehelp">
+                  <label for="bookName" class="form-label">Book Name</label>
+                  <input type="text" v-model="offerForm.bookName"
+                   class="form-control" id="bookName">
                 </div>
                 <div class="mb-3">
-                  <label for="exampleInputAuthor(s)1" class="form-label">Author(s)</label>
-                  <input type="Author(s)" class="form-control" id="exampleInputAuthor(s)1">
+                  <label for="authorName" class="form-label">Author Name</label>
+                  <input type="text" v-model="offerForm.authorName"
+                   class="form-control" id="authorName">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputYearPublished1" class="form-label">Year Published</label>
-                    <input type="YearPublished" class="form-control" id="exampleYearPublished1">
-                  </div>
-                  <div class="mb-3">
-                    <label for="examplePublisher1" class="form-label">Publisher</label>
-                    <input type="Publisher" class="form-control" id="exampleInputPublisher">
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputPageCount" class="form-label">Page Count</label>
-                    <input type="Page Count" class="form-control" id="exampleInputPageCount">
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputMSRP1" class="form-label">MSRP</label>
-                    <input type="MSRP" class="form-control" id="exampleMSRP1">
-                  </div>
-
+                  <label for="publishYear" class="form-label">Year Published</label>
+                  <input type="date" v-model="offerForm.publishYear" class="form-control" id="publishYear">
+                </div>
+                <div class="mb-3">
+                  <label for="publisher" class="form-label">Publisher</label>
+                  <input type="text" v-model="offerForm.publisher"
+                   class="form-control" id="publisher">
+                </div>
+                <div class="mb-3">
+                  <label for="pageCount" class="form-label">Page Count</label>
+                  <input type="number" v-model="offerForm.pageCount" class="form-control" id="pageCount">
+                </div>
+                <div class="mb-3">
+                  <label for="bookMsrp" class="form-label">MSRP</label>
+                  <input type="number" v-model="offerForm.bookMsrp" class="form-control" id="bookMsrp">
+                </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
-    
+            </div>
+          </div>
+          
+        </div>
             </main>
                 <!--End of Main-->
                 <!--Start of Footer-->
@@ -133,9 +133,9 @@
         <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     
         <script src="js/index.js"></script>
-        <script>
+        <!-- <script>
           new Tablesort(document.getElementById('taskTable'));
-        </script>
+        </script> -->
     </body>
 
 </html>

@@ -1,9 +1,7 @@
 const SomeApp = {
     data() {
       return {
-        students: [],
-        selectedStudent: null,
-        offers: [],
+        offers: {},
         offerForm: {}
       }
     },
@@ -17,28 +15,8 @@ const SomeApp = {
             const d = new Intl.NumberFormat("en-US").format(n);
             return "$ " + d;
         },
-        selectStudent(s) {
-            if (s == this.selectedStudent) {
-                return;
-            }
-            this.selectedStudent = s;
-            this.offers = [];
-            this.fetchOfferData(this.selectedStudent);
-        },
-        fetchStudentData() {
-            fetch('/api/student/')
-            .then( response => response.json() )
-            .then( (responseJson) => {
-                console.log(responseJson);
-                this.students = responseJson;
-            })
-            .catch( (err) => {
-                console.error(err);
-            })
-        },
-        fetchOfferData(s) {
-            console.log("Fetching offer data for ", s);
-            fetch('/api/offer/?student=' + s.id)
+                fetchStudentData() {
+            fetch('/api/book/index.php')
             .then( response => response.json() )
             .then( (responseJson) => {
                 console.log(responseJson);
@@ -47,16 +25,9 @@ const SomeApp = {
             .catch( (err) => {
                 console.error(err);
             })
-            .catch( (error) => {
-                console.error(error);
-            });
         },
-    postNewOffer(evt) {
-        this.offerForm.studentId = this.selectedStudent.id;        
-        console.log("Posting:", this.offerForm);
-        // alert("Posting!");
-
-        fetch('api/offer/create.php', {
+       postNewOffer(evt) {
+            fetch('api/book/create.php', {
             method:'POST',
             body: JSON.stringify(this.offerForm),
             headers: {
