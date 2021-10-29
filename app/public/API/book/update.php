@@ -47,7 +47,8 @@ $stmt->execute([
   $_POST['publishYear'],
   $_POST['publisher'],
   $_POST['pageCount'],
-  $_POST['bookMsrp']
+  $_POST['bookMsrp'],
+  $_POST['id']
 ]);
 
 // Get auto-generated PK from DB

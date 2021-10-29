@@ -82,9 +82,9 @@
                                   <td>{{ prettyDollar(offer.bookMsrp) }}</td>
                                   <td>
               <button type="button" class="btn btn-outline-secondary btn-sm"
-                            v-on:click="selectOfferToEdit(book)">Edit</button>
+                            v-on:click="selectOfferToEdit(offer)">Edit</button>
               <button type="button" class="btn btn-outline-secondary btn-sm"
-                            v-on:click="postDeleteOffer(book)">Delete</button>
+                            v-on:click="postDeleteOffer(offer)">Delete</button>
             </td>
                               </tr>
                           </tbody>
@@ -93,7 +93,9 @@
                                
                  
                <!--End of Table Section-->
-               <form v-on:submit.prevent="postNewOffer">
+               <!-- <form v-on:submit.prevent="postNewOffer"> -->
+                <h3 class="text-center">{{ selectedOffer === null ? "Add a new" : "Edit " }} Book</h3>
+                <form v-on:submit.prevent="postOffer">
                 <div class="mb-3">
                   <label for="bookName" class="form-label">Book Name</label>
                   <input type="text" v-model="offerForm.bookName"
@@ -121,7 +123,9 @@
                   <label for="bookMsrp" class="form-label">MSRP</label>
                   <input type="number" v-model="offerForm.bookMsrp" class="form-control" id="bookMsrp">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">{{ selectedOffer === null ? "Add " : "Edit " }} Book </button>
+        <button type="button" class="btn btn-dark" v-if="selectedOffer" v-on:click="resetOfferForm">Cancel</button>
+                <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
               </form>
             </div>
           </div>
