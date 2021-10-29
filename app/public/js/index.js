@@ -82,7 +82,7 @@ const SomeApp = {
       },
   
       postDeleteOffer(o) {
-        if (!confirm("Are you sure you want to delete the offer from "+o.id+"?")) {
+        if (!confirm("Are you sure you want to delete the book from "+o.id+"?")) {
           return;
         }
         console.log("Delete!", o);
