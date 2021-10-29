@@ -31,8 +31,14 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-  'INSERT INTO offer (bookName, authorName, publishYear, publisher, pageCount, bookMsrp)
-  VALUES (?, ?, ?, ?, ?, ?)'
+    'UPDATE offer SET
+    bookName = ?,
+    authorName = ?,
+    publishYear = ?,
+    publisher = ?,
+    pageCount = ?,
+    bookMsrp = ?
+  WHERE id = ?'
 );
 
 $stmt->execute([
